@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>홍명보 감독 논란 정리</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+            background: #f5f5f5;
+            color: #222;
+            line-height: 1.7;
+        }
+
+        /* 헤더 */
+        header {
+            background: #fff;
+            border-bottom: 3px solid #03c75a;
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .header-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            font-size: 1.4em;
+            font-weight: 900;
+            color: #03c75a;
+        }
+
+        .category {
+            font-size: 0.85em;
+            color: #888;
+            border-left: 1px solid #ddd;
+            padding-left: 10px;
+        }
+
+        /* 메인 */
+        main {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* 기사 헤더 */
+        .article-header {
+            background: #fff;
+            border-radius: 12px;
+            padding: 35px 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        }
+
+        .article-category {
+            display: inline-block;
+            background: #03c75a;
+            color: white;
+            font-size: 0.8em;
+            font-weight: bold;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+        }
+
+        .article-title {
+            font-size: 1.9em;
+            font-weight: 900;
+            line-height: 1.4;
+            margin-bottom: 15px;
+            color: #111;
+        }
+
+        .article-subtitle {
+            font-size: 1em;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 0.85em;
+            color: #888;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        .article-meta .date {
+            color: #aaa;
+        }
+
+        /* 썸네일 */
+        .thumbnail {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border-radius: 12px;
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .thumbnail-content {
+            text-align: center;
+            color: white;
+        }
+
+        .thumbnail-content .emoji {
+            font-size: 5em;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .thumbnail-content p {
+            font-size: 1.3em;
+            font-weight: bold;
+            opacity: 0.9;
+        }
+
+        .thumbnail-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255,50,50,0.85);
+            color: white;
+            font-size: 0.8em;
+            font-weight: bold;
+            padding: 5px 12px;
+            border-radius: 20px;
+        }
+
+        /* 본문 */
+        .article-body {
+            background: #fff;
+            border-radius: 12px;
+            padding: 35px 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        }
+
+        .article-body p {
+            font-size: 1.05em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .article-body h2 {
+            font-size: 1.3em;
+            font-weight: 900;
+            margin: 35px 0 15px;
+            padding-left: 12px;
+            border-left: 4px solid #03c75a;
+            color: #111;
+        }
+
+        /* 논란 카드 */
+        .issue-card {
+            background: #f9f9f9;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        .issue-card .issue-title {
+            font-size: 1em;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .issue-card p {
+            font-size: 0.95em;
+            color: #555;
+            margin: 0;
+        }
+
+        /* 찬반 섹션 */
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .pros {
+            background: #f0fff4;
+            border: 1px solid #b2dfdb;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .cons {
+            background: #fff5f5;
+            border: 1px solid #ffcdd2;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .pros h3 {
+            color: #2e7d32;
+            margin-bottom: 12px;
+            font-size: 1em;
+        }
+
+        .cons h3 {
+            color: #c62828;
+            margin-bottom: 12px;
+            font-size: 1em;
+        }
+
+        .pros ul, .cons ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .pros ul li, .cons ul li {
+            font-size: 0.9em;
+            color: #444;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .pros ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #2e7d32;
+            font-weight: bold;
+        }
+
+        .cons ul li::before {
+            content: "✗";
+            position: absolute;
+            left: 0;
+            color: #c62828;
+            font-weight: bold;
+        }
+
+        /* 타임라인 */
+        .timeline {
+            position: relative;
+            padding-left: 25px;
+            margin: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #ddd;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -21px;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #03c75a;
+            border: 2px solid white;
+            box-shadow: 0 0 0 2px #03c75a;
+        }
+
+        .timeline-item .time {
+            font-size: 0.8em;
+            color: #03c75a;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .timeline-item p {
+            font-size: 0.95em;
+            color: #444;
+            margin: 0;
+        }
+
+        /* 인용구 */
+        blockquote {
+            background: #f8f9fa;
+            border-left: 4px solid #03c75a;
+            padding: 20px 25px;
+            margin: 25px 0;
+            border-radius: 0 10px 10px 0;
+            font-style: italic;
+            color: #555;
+        }
+
+        blockquote cite {
+            display: block;
+            margin-top: 10px;
+            font-size: 0.85em;
+            color: #888;
+            font-style: normal;
+        }
+
+        /* 태그 */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .tag {
+            background: #f0f0f0;
+            color: #555;
+            font-size: 0.82em;
+            padding: 5px 12px;
+            border-radius: 20px;
+        }
+
+        /* 관련기사 */
+        .related {
+            background: #fff;
+            border-radius: 12px;
+            padding: 25px 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            margin-bottom: 20px;
+        }
+
+        .related h3 {
+            font-size: 1em;
+            font-weight: 900;
+            margin-bottom: 15px;
+            color: #111;
+            border-bottom: 2px solid #03c75a;
+            padding-bottom: 10px;
+        }
+
+        .related-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+            cursor: pointer;
+        }
+
+        .related-item:last-child {
+            border-bottom: none;
+        }
+
+        .related-item .dot {
+            width: 6px;
+            height: 6px;
+            background: #03c75a;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .related-item p {
+            font-size: 0.92em;
+            color: #333;
+        }
+
+        /* 푸터 */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.85em;
+            color: #aaa;
+            border-top: 1px solid #e0e0e0;
+            background: #fff;
+        }
+
+        /* 반응형 */
+        @media (max-width: 600px) {
+            .article-title { font-size: 1.4em; }
+            .pros-cons { grid-template-columns: 1fr; }
+            .article-body { padding: 25px 20px; }
+            .article-header { padding: 25px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 헤더 -->
+    <header>
+        <div class="header-inner">
+            <div class="logo">⚽ SportNews</div>
+            <div class="category">축구 · 국가대표</div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- 기사 헤더 -->
+        <div class="article-header">
+            <span class="article-category">국가대표</span>
+            <h1 class="article-title">홍명보 감독 선임 논란, 무엇이 문제였나?</h1>
+            <p class="article-subtitle">
+                2024년 7월 전격 선임된 홍명보 감독을 둘러싼 각종 논란과 찬반 의견을 중립적으로 정리했습니다.
+            </p>
+            <div class="article-meta">
+                <span>⚽ SportNews 편집팀</span>
+                <span class="date">2025년 기준 정리</span>
+            </div>
+        </div>
+
+        <!-- 썸네일 -->
+        <div class="thumbnail">
+            <div class="thumbnail-content">
+                <span class="emoji">🇰🇷</span>
+                <p>홍명보 감독 선임 논란 총정리</p>
+            </div>
+            <div class="thumbnail-badge">논란 정리</div>
+        </div>
+
+        <!-- 본문 -->
+        <div class="article-body">
+
+            <p>
+                2024년 7월, 대한축구협회(KFA)는 위르겐 클린스만 감독 경질 이후 약 5개월간의 공백 끝에
+                <strong>홍명보 전 울산 HD 감독</strong>을 국가대표팀 새 사령탑으로 선임했습니다.
+                그러나 이 결정은 발표 직후부터 축구 팬들과 전문가들 사이에서 큰 논란을 불러일으켰습니다.
+            </p>
+
+            <h2>📋 주요 논란 정리</h2>
+
+            <div class="issue-card">
+                <div class="issue-title">⚠️ 논란 1. 선임 과정의 불투명성</div>
+                <p>
+                    KFA가 공개 경쟁 없이 홍명보 감독을 내정했다는 의혹이 제기됐습니다.
+                    기술위원회의 정상적인 절차를 거치지 않았다는 비판이 쏟아졌으며,
+                    당시 기술위원장이 사퇴하는 사태로 이어졌습니다.
+                </p>
+            </div>
+
+            <div class="issue-card">
+                <div class="issue-title">⚠️ 논란 2. 2014년 브라질 월드컵 트라우마</div>
+                <p>
+                    홍명보 감독은 2014 브라질 월드컵 당시 감독으로서 조별리그 탈락(1무 2패)의 책임을 지고
+                    사퇴한 전력이 있습니다. 당시 성적 부진과 선수 선발 논란이 팬들 사이에 아직 남아 있습니다.
+                </p>
+            </div>
+
+            <div class="issue-card">
+                <div class="issue-title">⚠️ 논란 3. 클럽 계약 중도 파기 논란</div>
+                <p>
+                    홍명보 감독은 울산 HD와 계약이 남아 있는 상황에서 국가대표 감독직을 수락했습니다.
+                    클럽에 대한 의리 문제와 함께 프로 의식에 대한 비판이 제기됐습니다.
+                </p>
+            </div>
+
+            <div class="issue-card">
+                <div class="issue-title">⚠️ 논란 4. 외국인 감독 배제 논란</div>
+                <p>
+                    클린스만 감독 경질 이후 외국인 감독 후보들이 거론됐으나,
+                    KFA가 이를 충분히 검토하지 않고 국내파로 선회했다는 비판이 있었습니다.
+                </p>
+            </div>
+
+            <h2>📅 주요 사건 타임라인</h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="time">2024년 2월</div>
+                    <p>클린스만 감독, 아시안컵 8강 탈락 후 경질</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">2024년 2월 ~ 6월</div>
+                    <p>임시감독 체제 운영 및 차기 감독 물색</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">2024년 7월</div>
+                    <p>홍명보 감독 선임 발표 → 즉각적인 팬 반발</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">2024년 7월</div>
+                    <p>기술위원장 사퇴, KFA 선임 과정 해명 기자회견</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">2024년 9월 ~</div>
+                    <p>2026 북중미 월드컵 아시아 최종예선 시작</p>
+                </div>
+            </div>
+
+            <h2>🗣️ 찬반 의견</h2>
+
+            <div class="pros-cons">
+                <div class="pros">
+                    <h3>👍 선임 찬성 측</h3>
+                    <ul>
+                        <li>국내 리그 최고 지도자 경력</li>
+                        <li>울산 HD 우승 이끈 전술 능력</li>
+                        <li>선수단과의 소통 능력</li>
+                        <li>한국 축구 이해도 높음</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h3>👎 선임 반대 측</h3>
+                    <ul>
+                        <li>2014 월드컵 실패 전력</li>
+                        <li>불투명한 선임 과정</li>
+                        <li>클럽 계약 중도 파기</li>
+                        <li>외국인 감독 검토 부족</li>
+                    </ul>
+                </div>
+            </div>
+
+            <blockquote>
+                "선임 과정에서 절차적 문제가 있었던 것은 인정합니다.
+                하지만 홍명보 감독의 능력을 믿고 2026 월드컵을 준비하겠습니다."
+                <cite>— 대한축구협회 관계자 (2024년 7월 기자회견)</cite>
+            </blockquote>
+
+            <h2>📌 현재 상황</h2>
+
+            <p>
+                홍명보 감독은 논란 속에서도 2026 북중미 월드컵 아시아 최종예선을 이끌고 있습니다.
+                초반 경기 결과에 따라 팬들의 평가가 엇갈리고 있으며,
+                <strong>결국 성적으로 평가받을 수밖에 없다</strong>는 것이 중론입니다.
+            </p>
+
+            <p>
+                축구 팬들 사이에서는 선임 과정의 문제와 감독 개인의 능력을 분리해서 봐야 한다는
+                시각도 존재하며, 2026 월드컵 본선 진출 및 성적이 최종 평가 기준이 될 전망입니다.
+            </p>
+
+            <div class="tags">
+                <span class="tag">#홍명보</span>
+                <span class="tag">#국가대표</span>
+                <span class="tag">#2026월드컵</span>
+                <span class="tag">#KFA</span>
+                <span class="tag">#축구논란</span>
+                <span class="tag">#감독선임</span>
+            </div>
+
+        </div>
+
+        <!-- 관련 기사 -->
+        <div class="related">
+            <h3>관련 기사</h3>
+            <div class="related-item">
+                <div class="dot"></div>
+                <p>KFA 기술위원장, 홍명보 선임 직후 전격 사퇴</p>
+            </div>
+            <div class="related-item">
+                <div class="dot"></div>
+                <p>홍명보 감독 "모든 비판 겸허히 받아들이겠다"</p>
+            </div>
+            <div class="related-item">
+                <div class="dot"></div>
+                <p>2026 북중미 월드컵 아시아 최종예선 일정 및 조편성</p>
+            </div>
+            <div class="related-item">
+                <div class="dot"></div>
+                <p>한국 축구 팬들이 원하는 차기 감독은 누구?</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- 푸터 -->
+    <footer>
+        <p>⚽ SportNews | 본 기사는 중립적 입장에서 논란을 정리한 콘텐츠입니다.</p>
+        <p style="margin-top:8px;">© 2025 SportNews. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

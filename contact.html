@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제휴 문의 - SportNews</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+            background: #f5f5f5;
+            color: #222;
+            line-height: 1.7;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 3px solid #03c75a;
+            padding: 15px 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .header-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo { font-size: 1.4em; font-weight: 900; color: #03c75a; }
+        .logo a { text-decoration: none; color: inherit; }
+
+        .category {
+            font-size: 0.85em; color: #888;
+            border-left: 1px solid #ddd; padding-left: 10px;
+        }
+
+        .nav-link {
+            margin-left: auto;
+            font-size: 0.85em;
+        }
+        .nav-link a {
+            color: #03c75a;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .nav-link a:hover { text-decoration: underline; }
+
+        main { max-width: 640px; margin: 40px auto; padding: 0 20px; }
+
+        .form-card {
+            background: #fff; border-radius: 12px;
+            padding: 40px 35px; box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        }
+
+        .form-title { font-size: 1.6em; font-weight: 900; margin-bottom: 8px; color: #111; }
+        .form-desc { font-size: 0.95em; color: #666; margin-bottom: 30px; }
+
+        .form-group { margin-bottom: 22px; }
+        .form-group label { display: block; font-size: 0.9em; font-weight: 700; color: #333; margin-bottom: 6px; }
+        .form-group label .required { color: #e74c3c; margin-left: 2px; }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%; padding: 12px 14px;
+            border: 1px solid #ddd; border-radius: 8px;
+            font-size: 0.95em; font-family: inherit; color: #333;
+            background: #fafafa; transition: border-color 0.2s, background 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none; border-color: #03c75a; background: #fff;
+        }
+
+        .form-group textarea { resize: vertical; min-height: 130px; }
+        .form-group .help-text { font-size: 0.82em; color: #999; margin-top: 4px; }
+
+        .btn-submit {
+            width: 100%; padding: 14px; background: #03c75a; color: #fff;
+            border: none; border-radius: 8px; font-size: 1.05em;
+            font-weight: 700; cursor: pointer; transition: background 0.2s;
+        }
+        .btn-submit:hover { background: #02b04f; }
+        .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+        .success-message { display: none; text-align: center; padding: 40px 20px; }
+        .success-message .icon { font-size: 3em; margin-bottom: 15px; }
+        .success-message h2 { font-size: 1.3em; margin-bottom: 8px; color: #111; }
+        .success-message p { font-size: 0.95em; color: #666; }
+
+        footer {
+            text-align: center; padding: 30px 20px;
+            font-size: 0.85em; color: #aaa;
+            border-top: 1px solid #e0e0e0; background: #fff;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+            .form-card { padding: 30px 20px; }
+            .form-title { font-size: 1.3em; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <div class="logo"><a href="index.html">⚽ SportNews</a></div>
+            <div class="category">제휴 문의</div>
+            <div class="nav-link"><a href="index.html">← 기사로 돌아가기</a></div>
+        </div>
+    </header>
+
+    <main>
+        <div class="form-card" id="formCard">
+            <h1 class="form-title">제휴 문의</h1>
+            <p class="form-desc">스포츠 뉴스 콘텐츠 제휴 및 협업 문의는 아래 양식을 작성해 주세요.</p>
+
+            <form id="contactForm" action="https://formspree.io/f/mgojnvgd" method="POST">
+                <div class="form-group">
+                    <label for="name">업체명 / 이름 <span class="required">*</span></label>
+                    <input type="text" id="name" name="name" required placeholder="예: 네이버스포츠">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">이메일 <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required placeholder="answer@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">연락처</label>
+                    <input type="tel" id="phone" name="phone" placeholder="010-1234-5678">
+                </div>
+
+                <div class="form-group">
+                    <label for="inquiry_type">문의 유형 <span class="required">*</span></label>
+                    <select id="inquiry_type" name="inquiry_type" required>
+                        <option value="">선택해 주세요</option>
+                        <option value="광고 제휴">광고 제휴</option>
+                        <option value="콘텐츠 제휴">콘텐츠 제휴</option>
+                        <option value="언론 협업">언론 협업</option>
+                        <option value="행사 제안">행사 제안</option>
+                        <option value="기타">기타</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">문의 내용 <span class="required">*</span></label>
+                    <textarea id="message" name="message" required placeholder="제휴 제안 내용을 자세히 적어 주세요."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit" id="submitBtn">보내기</button>
+            </form>
+        </div>
+
+        <div class="form-card" id="successMessage" style="display:none;">
+            <div class="success-message">
+                <div class="icon">✅</div>
+                <h2>문의가 접수되었습니다</h2>
+                <p>빠른 시일 내에 답변 드리겠습니다.</p>
+                <p style="margin-top:20px;"><a href="index.html" style="color:#03c75a;">메인으로 가기</a></p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>⚽ SportNews | © 2025 SportNews. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            btn.disabled = true;
+            btn.textContent = '보내는 중...';
+
+            try {
+                const formData = new FormData(this);
+                const params = new URLSearchParams();
+                formData.forEach((value, key) => params.append(key, value));
+
+                const res = await fetch(this.action, {
+                    method: 'POST',
+                    body: params,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (res.ok) {
+                    document.getElementById('formCard').style.display = 'none';
+                    document.getElementById('successMessage').style.display = 'block';
+                } else {
+                    alert('전송에 실패했습니다. 다시 시도해 주세요.');
+                }
+            } catch {
+                alert('네트워크 오류가 발생했습니다. 다시 시도해 주세요.');
+            } finally {
+                btn.disabled = false;
+                btn.textContent = '보내기';
+            }
+        });
+    </script>
+</body>
+</html>
